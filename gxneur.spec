@@ -47,9 +47,6 @@ make %{?jobs:-j %jobs}
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall
-# a hack
-#mkdir %{buildroot}%{_gnomedir}/share/gxneur/locale 
-#mv -f %{buildroot}%{_gnomedir}/share/locale/* %{buildroot}%{_gnomedir}/share/gxneur/locale 
 #small_hack
 cp -f pixmaps/ru.png %{buildroot}%{_datadir}/%name/pixmaps/ru\(winkeys\).png
 
