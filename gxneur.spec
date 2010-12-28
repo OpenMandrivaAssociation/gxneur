@@ -1,17 +1,7 @@
-#
-# spec file for package gxneur
-#
-# Copyright (c) 2006-2007 Nikolay Derkach <nderkach@gmail.com>
-# This file and all modifications and additions to the pristine
-# package are under the same license as the package itself.
-#
-
-# norootforbuild
-
 %define _gnomedir	/usr
 %define _datarootdir	%{_gnomedir}/share/gxneur
 %define _pixmaps	%{_gnomedir}/share/gxneur/pixmaps
-%define _locale         %{_datarootdir}/locale
+%define _locale		%{_datarootdir}/locale
 %define rel 1
 
 
@@ -31,11 +21,6 @@ Summary:	X Neural Switcher - GTK2 interface
 %description
 X Neural Switcher (http://www.xneur.ru).
 Automatical switcher of keyboard layout (GTK2 frontend).
-
-Authors:
--------
- Andrew Crew Kuznetsov <andrewcrew@rambler.ru>
- Yankin Nickolay Valerevich <web@softodrom.ru>
 
 %prep
 %setup -n %{name}-%{version} -q
@@ -68,7 +53,7 @@ install -m 0644 %name.desktop \
 %{buildroot}%{_datadir}/applications/%name.desktop
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
@@ -80,4 +65,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_datarootdir}/glade/*
 %{_gnomedir}/share/man/man1/*
 %{_gnomedir}/share/icons/hicolor/*
-
