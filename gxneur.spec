@@ -6,7 +6,7 @@
 
 
 Name:		gxneur
-Version:	0.11.1
+Version:	0.12.0
 Release:	%mkrel %{rel}
 License:	GPLv2
 URL:		http://www.xneur.ru
