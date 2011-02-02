@@ -12,7 +12,7 @@ License:	GPLv2
 URL:		http://www.xneur.ru
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildRequires:	gtk2-devel glib2-devel libglade2-devel
-BuildRequires:  pcre-devel xneur-devel = %{version} libGConf2-devel
+BuildRequires:  pcre-devel %{_lib}xneur-devel = %{version} libGConf2-devel
 Source:		%{name}-%{version}.tar.bz2
 Requires:	xneur = %{version}
 Group:		System/X11
