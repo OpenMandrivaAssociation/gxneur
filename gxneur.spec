@@ -7,6 +7,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildRequires:	gtk2-devel libglade2-devel
 BuildRequires:	xneur-devel = %{version}
 BuildRequires:	libGConf2-devel GConf2
+BuildRequires:	gettext-devel
 Source:		%{name}-%{version}.tar.bz2
 Patch0:		gxneur-0.12.0-cflags.patch
 Requires:	xneur = %{version}
