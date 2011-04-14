@@ -8,6 +8,7 @@ BuildRequires:	gtk2-devel libglade2-devel
 BuildRequires:	xneur-devel = %{version}
 BuildRequires:	libGConf2-devel GConf2
 Source:		%{name}-%{version}.tar.bz2
+Patch0:		gxneur-0.12.0-cflags.patch
 Requires:	xneur = %{version}
 Group:		System/X11
 Summary:	X Neural Switcher - GTK2 interface
@@ -18,8 +19,10 @@ Automatical switcher of keyboard layout (GTK2 frontend).
 
 %prep
 %setup -qn %{name}-%{version}
+%patch0 -p0
 
 %build
+autoreconf -fi
 %configure2_5x
 %make
 
