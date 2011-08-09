@@ -2,7 +2,7 @@
 %define _datarootdir	%{_gnomedir}/share/gxneur
 %define _pixmaps	%{_gnomedir}/share/gxneur/pixmaps
 %define _locale		%{_datarootdir}/locale
-%define rel 1
+%define rel 2
 
 
 Name:		gxneur
@@ -53,6 +53,10 @@ cat > %name.desktop << EOF
 EOF
 install -m 0644 %name.desktop \
 %{buildroot}%{_datadir}/applications/%name.desktop
+
+#dirty hack for resolve conflict with hicolor-icon-theme
+
+rm -f %{buildroot}%{_gnomedir}/share/icons/hicolor/icon-theme.cache
 
 %clean
 rm -rf %{buildroot}
