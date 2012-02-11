@@ -2,7 +2,7 @@
 %define _datarootdir	%{_gnomedir}/share/gxneur
 %define _pixmaps	%{_gnomedir}/share/gxneur/pixmaps
 %define _locale		%{_datarootdir}/locale
-%define rel 2
+%define rel 3
 
 
 Name:		gxneur
