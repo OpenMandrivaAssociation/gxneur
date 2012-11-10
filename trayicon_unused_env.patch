@@ -1,0 +1,22 @@
+--- src/trayicon.c.old	2011-05-18 12:46:59.000000000 +0400
++++ src/trayicon.c	2011-05-24 23:21:35.000000000 +0400
+@@ -321,16 +321,16 @@
+ 	
+ 	gchar *hint;
+ 	gchar *status_text;
+-	float saturation;
++//	float saturation;
+ 	if (xneur_pid != -1)
+ 	{
+-		saturation = 1.0;
++//		saturation = 1.0;
+ 		hint = g_strdup_printf("%s%s%s", _("X Neural Switcher running ("), xconfig->handle->languages[lang].dir, ")");
+ 		status_text = g_strdup_printf("%s", _("Stop daemon"));
+ 	}
+ 	else
+ 	{
+-		saturation = 0.25;
++//		saturation = 0.25;
+ 		hint = g_strdup_printf("%s%s%s", _("X Neural Switcher stopped ("), xconfig->handle->languages[lang].dir, ")");
+ 		status_text = g_strdup_printf("%s", _("Start daemon"));
+ 	}
