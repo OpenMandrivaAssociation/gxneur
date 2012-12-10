@@ -2,18 +2,17 @@
 %define _datarootdir	%{_gnomedir}/share/gxneur
 %define _pixmaps	%{_gnomedir}/share/gxneur/pixmaps
 %define _locale		%{_datarootdir}/locale
-%define rel 3
+%define rel 2
 
 
 Name:		gxneur
-Version:	0.13.0
+Version:	0.16.0
 Release:	%mkrel %{rel}
 License:	GPLv2
 URL:		http://www.xneur.ru
-BuildRoot:      %{_tmppath}/%{name}-%{version}-build
-BuildRequires:	gtk2-devel glib2-devel libglade2-devel
-BuildRequires:  pcre-devel %{_lib}xneur-devel = %{version} libGConf2-devel
-Source:		%{name}-%{version}.tar.bz2
+BuildRequires:	gtk2-devel pkgconfig(glib-2.0) pkgconfig(libglade-2.0)
+BuildRequires:  pkgconfig(libpcre) %{_lib}xneur-devel = %{version} pkgconfig(gconf-2.0)
+Source0:	http://dists.xneur.ru/release-%{version}/tgz/%{name}-%{version}.tar.bz2
 Patch0:		trayicon_unused_env.patch
 Requires:	xneur = %{version}
 Group:		System/X11
@@ -25,16 +24,16 @@ Automatical switcher of keyboard layout (GTK2 frontend).
 
 %prep
 %setup -n %{name}-%{version} -q
-%patch0 -p0
+#% patch0 -p0
 
 %build
 ./configure --prefix=%{_gnomedir} --libdir=%{_libdir}
-make %{?jobs:-j %jobs}
+%make
 
 %install
-rm -rf $RPM_BUILD_ROOT
 %makeinstall
 #small_hack
+mkdir -p %{buildroot}%{_datadir}/%name/pixmaps/
 cp -f pixmaps/ru.png %{buildroot}%{_datadir}/%name/pixmaps/ru\(winkeys\).png
 
 install -dm 755 %{buildroot}%{_datadir}/applications
@@ -57,17 +56,15 @@ install -m 0644 %name.desktop \
 #dirty hack for resolve conflict with hicolor-icon-theme
 
 rm -f %{buildroot}%{_gnomedir}/share/icons/hicolor/icon-theme.cache
+%find_lang %{name}
 
-%clean
-rm -rf %{buildroot}
-
-%files
-%defattr(-,root,root)
+%files -f %{name}.lang
 %doc AUTHORS ChangeLog NEWS README TODO
 %{_gnomedir}/bin/*
 %{_pixmaps}/*
 %{_datadir}/applications/*.desktop
-%{_datadir}/locale/*
-%{_datarootdir}/glade/*
-%{_gnomedir}/share/man/man1/*
-%{_gnomedir}/share/icons/hicolor/*
+%{_datadir}/%{name}/glade/*
+%{_iconsdir}/hicolor/*/*
+%{_datadir}/%{name}/pixmaps/*.png
+%{_mandir}/man1/*
+#% {_gnomedir}/share/icons/hicolor/*
