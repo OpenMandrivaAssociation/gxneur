@@ -1,6 +1,6 @@
 Name:		gxneur
 Version:	0.17.0
-Release:	1
+Release:	3
 License:	GPLv2
 URL:		http://www.xneur.ru
 BuildRequires:	pkgconfig(gtk+-2.0)
@@ -39,16 +39,18 @@ cp -f pixmaps/ru.png %{buildroot}%{_datadir}/%name/pixmaps/ru\(winkeys\).png
 install -dm 755 %{buildroot}%{_datadir}/applications
 cat > %name.desktop << EOF
 [Desktop Entry]
- Encoding=UTF-8
- Name=GXNeur
- GenericName=X Neural Switcher (GTK)
- Comment=X Neural Switcher (xneur) allow you to convert any text, typed in wrong keyboard layout just in-place for any X pplication.
- Icon=%{_datadir}/%{name}/pixmaps/gxneur.png
- Exec=gxneur --keyboard-properties="/usr/bin/kcmshell4 kcm_keyboard || /usr/bin/gnome-control-center"
- Terminal=false
- Type=Application
- Categories=GTK;GNOME;Application;Utility;
- StartupNotify=false
+Encoding=UTF-8
+Name=GXNeur
+GenericName=X Neural Switcher
+GenericName[ru]=Переключатель раскладок клавиатуры
+Comment=Automatic keyboard layout switcher
+Comment[ru]=Автоматический переключатель раскладок клавиатуры
+Icon=%{_datadir}/%{name}/pixmaps/gxneur.png
+Exec=gxneur --keyboard-properties="/usr/bin/kcmshell4 kcm_keyboard || /usr/bin/gnome-control-center"
+Terminal=false
+Type=Application
+Categories=GTK;GNOME;Application;Utility;
+StartupNotify=false
 EOF
 echo %{buildroot}%{_datadir}/applications/
 install -m 0644 %name.desktop \
