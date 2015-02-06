@@ -1,6 +1,6 @@
 Name:		gxneur
 Version:	0.17.0
-Release:	3
+Release:	4
 License:	GPLv2
 URL:		http://www.xneur.ru
 BuildRequires:	pkgconfig(gtk+-2.0)
