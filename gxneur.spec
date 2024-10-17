@@ -2,7 +2,7 @@ Name:		gxneur
 Version:	0.17.0
 Release:	4
 License:	GPLv2
-URL:		http://www.xneur.ru
+URL:		https://www.xneur.ru
 BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(libglade-2.0)
